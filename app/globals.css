@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-card-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    @apply bg-signal/30 text-ash-50;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-signal ring-offset-2 ring-offset-ink;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Cosmic backdrop: deep-space base with warm nebula washes.
+     Layered under two tiling starfields (see layout.tsx). */
+  .cosmic-base {
+    background-color: #06040a;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 18% 8%, rgba(140, 82, 38, 0.22), transparent 55%),
+      radial-gradient(ellipse 60% 45% at 85% 25%, rgba(96, 52, 120, 0.16), transparent 60%),
+      radial-gradient(ellipse 55% 40% at 50% 0%, rgba(204, 122, 69, 0.10), transparent 65%),
+      radial-gradient(ellipse 80% 55% at 50% 100%, rgba(120, 66, 30, 0.12), transparent 60%);
+  }
+
+  .starfield-near {
+    background-image: url("/stars.png");
+    background-repeat: repeat;
+    background-size: 512px 512px;
+  }
+
+  .starfield-far {
+    background-image: url("/stars-far.png");
+    background-repeat: repeat;
+    background-size: 384px 384px;
+  }
+}
